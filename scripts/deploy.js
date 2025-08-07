@@ -6,8 +6,8 @@ async function main() {
   const [deployer] = await ethers.getSigners();
   console.log("Deploying contracts with the account:", deployer.address);
 
-  const Token = await ethers.getContractFactory("Token");
-  const contract = await Token.deploy({ value: ethers.parseUnits('1', 'wei') });
+  const TestToken = await ethers.getContractFactory("TestToken");
+  const contract = await TestToken.deploy();
 
   await contract.waitForDeployment();
   const address = await contract.getAddress();
